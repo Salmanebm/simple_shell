@@ -1,18 +1,27 @@
 #include "main.h"
 
-char **str_split(char *command, char *del, int nb_char)
+char **tokenizer(char *buff, char *del, int nb_char)
 {       
-	char *token, **toks;
-	int i = 0;
+	char *token = NULL, **toks = NULL;
+	char *buff_cp;
+	int i = 0, j = 0;
 
-	toks = malloc(sizeof(char *) * nb_char);
-	token = strtok(command, del);
+	buff_cp = malloc(sizeof(char) * nb_char); 
+
+	strcpy(buff_cp, buff);
+	token = strtok(buff_cp, del);
 	while(token)
-	{
-		toks[i] = token;
+	{	i++;
 		token = strtok(NULL, del);				
-		i++;
 	}
-       toks[i] = NULL;
-       return (toks);
+	i++;
+	toks = malloc(sizeof(char *) * i);
+	token = strtok(buff, del);
+	while (token)
+	{	toks[j] = token;
+		token = strtok(NULL, del);
+		j++;
+	}
+	toks[j] = NULL;
+	return (toks);
 }

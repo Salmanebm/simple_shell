@@ -8,7 +8,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-char *_getcommand(char *command);
-char **str_split(char *command, char *del, int nb_char);
+char *_getpath(char **command);
+char **tokenizer(char *command, char *del, int nb_char);
+void _execve(char *_fullpath, char **argv);
 
 #endif
