@@ -17,17 +17,15 @@ int main(__attribute__((unused)) int ac, char **av)
 			printf("($) ");
 
 			n_line = getline(&buff, &buff_size, stdin);
-			if (n_line = -1)
+			if (n_line == -1)
 				return (-1);
 
 			av = tokenizer(buff," \t\n", n_line);
 			cmd = _getpath(av);
 			
-			int id = fork();
-			if (id == 0)
-			{
-				_execve(av, cmd);
-			}
+			_execve(av, cmd);
+
+			free(av);
 		}
 	}
 	return (0);
