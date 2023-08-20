@@ -16,10 +16,14 @@ int main(int ac, char **av)
 
 	if (isatty(STDIN_FILENO))
 	{
+here:
 		while (1)
 		{
-			write(1, "$ ", 2);
+			write(1, "($) ", 4);
 			n_line = getline(&buff, &buff_size, stdin);
+			if (buff[0] == '\n')
+				goto here;	
+				
 			if (n_line == -1)
 			{	write(1, "\n", 1);
 				exit(0);

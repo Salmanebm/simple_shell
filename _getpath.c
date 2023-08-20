@@ -3,7 +3,6 @@
 char *_getpath(char **token_arr)
 {
 	char *path = getenv("PATH");
-	char *token;
 	char *full_cmd;
 	struct stat st;
 	int i;
@@ -24,6 +23,6 @@ char *_getpath(char **token_arr)
 
 		free(full_cmd);
 	}
-	return (NULL);
+	return (token_arr[0]);
 }
 
