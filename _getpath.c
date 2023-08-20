@@ -24,7 +24,6 @@ char *_getpath(char **token_arr)
 
 		free(full_cmd);
 	}
-
-	return (token_arr[0]);
+	return (NULL);
 }
 
