@@ -1,10 +1,10 @@
 #include "main.h"
 
 
-void _execve(char *_fullpath, char **argv)
+void _execve(char **token_arr, char *cmd)
 {	
-	if(execve(_fullpath, argv, NULL) == -1)
-	       perror(" Error");
+	if(execve(cmd, token_arr, NULL) == -1)
+	       perror("Error: ");
 }
 
 
