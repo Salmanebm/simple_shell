@@ -40,6 +40,11 @@ here:
 				exit(1);
 				
 			}
+			if(strcmp(av[0],"env") == 0)
+			{
+				_printenv();
+				exit(1);
+			}
 			pid = fork();
 			if (pid == 0)
 			{
