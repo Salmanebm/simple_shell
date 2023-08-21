@@ -12,17 +12,26 @@ char *_getpath(char **token_arr)
  
 	for(i = 0; path_arr[i] != NULL; i++)
 	{
+		
 		full_cmd = malloc(strlen(path_arr[i]) + strlen(token_arr[0]) + 2);
+		if (full_cmd == NULL)
+		{	
+			free(full_cmd);
+			free_tokens(path_arr);
+			perror("Error");
+		}
 		strcpy(full_cmd, path_arr[i]);
 		strcat(full_cmd, "/");
 		strcat(full_cmd, token_arr[0]);				
 		strcat(full_cmd, "\0");
 
 		if (stat(full_cmd, &st) == 0)
-                   return (full_cmd);
-
+		{ 	free_tokens(path_arr);
+		     	return (full_cmd);
+		}
 		free(full_cmd);
 	}
+	free_tokens(path_arr);
 	return (token_arr[0]);
 }
 

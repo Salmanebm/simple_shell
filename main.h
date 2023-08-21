@@ -12,5 +12,6 @@ char *_getpath(char **command);
 char **tokenizer(char *command, char *del, int nb_char);
 void _execve(char **token_arr, char *cmd);
 void _printenv();
+void free_tokens(char **token_arr);
 
 #endif

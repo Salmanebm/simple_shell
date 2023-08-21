@@ -16,34 +16,34 @@ int main(int ac, char **av)
 
 	if (isatty(STDIN_FILENO))
 	{
-here:
 		while (1)
 		{
 			write(1, "($) ", 4);
 			n_line = getline(&buff, &buff_size, stdin);
 			if (buff[0] == '\n')
-				goto here;	
-				
+			{
+				continue;	
+			}	
 			if (n_line == -1)
-			{	write(1, "\n", 1);
+			{	
+				write(1, "\n", 1);
 				exit(0);
 			}	
 			av = tokenizer(buff," \t\n", n_line);
 			if (av == NULL)
 			{
-				free(buff);
 				exit(0); 
 			}
 			if(strcmp(av[0],"exit") == 0)
 			{	
-				free(buff);
+				free_tokens(av);
 				exit(1);
 				
 			}
 			if(strcmp(av[0],"env") == 0)
 			{
+				
 				_printenv();
-				exit(1);
 			}
 			pid = fork();
 			if (pid == 0)
@@ -57,11 +57,16 @@ here:
 				{	
 					_execve(av, cmd);
 				}
+				free(cmd);
 				exit(0);
 			}
 			else
-				 wait(&status);
+			{	wait(&status);
+			}
+			free_tokens(av);
 		}
 	}
+	free(buff);
+	free_tokens(av);
 	return (0);
 }
