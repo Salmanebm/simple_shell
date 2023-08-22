@@ -21,9 +21,7 @@ int main(int ac, char **av)
 			write(1, "($) ", 4);
 			n_line = getline(&buff, &buff_size, stdin);
 			if (buff[0] == '\n')
-			{
 				continue;	
-			}	
 			if (n_line == -1)
 			{	
 				write(1, "\n", 1);
@@ -38,8 +36,7 @@ int main(int ac, char **av)
 			{	
 				free_tokens(av);
 				exit(1);
-				
-			}
+	
 			_exit_man(av, buff);
 			if(strcmp(av[0],"env") == 0)
 			{

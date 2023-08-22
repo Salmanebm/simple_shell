@@ -100,45 +100,45 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * _strcpy - Copie Source To Destination Char
- * @dest:Destination
+ * _strcpy - Copies a string to another
+ * @dest: Destination
  * @src:Source
- * Return: Copie Of Char *
+ * Return: A pointer to the copied string
  */
-char *_strcpy(char *dest, char *src)
+char *_strcpy(char *d, char *s)
 {
-int i;
+	int i = 0;
 
-i = 0;
-	while (src[i])
+	while (s[i])
 	{
-		dest[i] = src[i];
+		d[i] = s[i];
 		i++;
 	}
-dest[i] = '\0';
-return (dest);
+	d[i] = '\0';
+	return (d);
 }
+
 /**
- * _strcat - Concat Two String
- * @dest:First String
- * @src:Second String
- * Return:First String + Second String Char *
+ * _strcat - Concatenates Two Strings
+ * @dest: First String
+ * @src: Second String
+ * Return: The new string
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *d, char *source)
 {
-	char *s = dest;
+	char *s = d;
 
-	while (*dest != '\0')
+	while (*d != '\0')
 	{
-		dest++;
+		d++;
 	}
 
-	while (*src != '\0')
+	while (*source != '\0')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		*d = *source;
+		d++;
+		source++;
 	}
-	*dest = '\0';
+	* = '\0';
 	return (s);
 }
