@@ -40,6 +40,7 @@ int main(int ac, char **av)
 				exit(1);
 				
 			}
+			_exit_man(av, buff);
 			if(strcmp(av[0],"env") == 0)
 			{
 				
