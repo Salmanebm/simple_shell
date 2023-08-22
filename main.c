@@ -1,7 +1,10 @@
 #include "main.h"
 
 /**
- *
+ * main - Simple Shell (Hsh)
+ * @argc: Argument Count
+ * @argv:Argument Value
+ * Return: Exit Value By Status
  */
 int main(int ac, char **av)
 {
