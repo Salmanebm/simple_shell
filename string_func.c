@@ -5,9 +5,9 @@
  * @c: The character to print
  * Return: Always 1
  */
-int _putchar(const char *c)
+int  _putchar(char c)
 {
-	return (write(STDOUT_FILENO, c, _strlen(c)));
+	return (write(STDOUT_FILENO, &c, 1));
 }
 
 /**
@@ -65,7 +65,6 @@ void _puts(char *s)
 	{
 		_putchar(s[i]);
 	}
-	_putchar('\n');
 }
 
 /**
@@ -139,6 +138,6 @@ char *_strcat(char *d, char *source)
 		d++;
 		source++;
 	}
-	* = '\0';
+	*d = '\0';
 	return (s);
 }

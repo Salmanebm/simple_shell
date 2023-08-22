@@ -12,7 +12,7 @@
 
 /****** String Functions ******/
 
-int _putchar(const char *c);
+int _putchar(char c);
 int _strlen(char *s);
 int _atoi(char *s);
 void _puts(char *s);

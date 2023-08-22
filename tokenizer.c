@@ -38,6 +38,5 @@ char **tokenizer(char *buff, char *delimiter, int n_line)
 	token_arr[j] = NULL;
 	free(buff_cp);
 	free(token);
-	free(delimiter);
 	return (token_arr);
 }

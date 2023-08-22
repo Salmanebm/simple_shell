@@ -21,7 +21,7 @@ int main(int ac, char **av)
 	{
 		while (1)
 		{
-			_putchar("($) ");
+			write(1, "($) ", 4);
 			n_line = getline(&buff, &buff_size, stdin);
 			if (buff[0] == '\n')
 				continue;	
@@ -35,13 +35,13 @@ int main(int ac, char **av)
 			{
 				exit(0); 
 			}
-			if(_strcmp(av[0],"exit") == 0)
+			if(strcmp(av[0],"exit") == 0)
 			{	
 				free_tokens(av);
 				exit(1);
 			}
 			_exit_man(av, buff);
-			if(_strcmp(av[0],"env") == 0)
+			if(strcmp(av[0],"env") == 0)
 			{
 				
 				_printenv();
@@ -64,7 +64,7 @@ int main(int ac, char **av)
 			else
 			{	wait(&status);
 			}
-			free_tokens(av);
+			
 		}
 	}
 	free(buff);
