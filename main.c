@@ -34,12 +34,8 @@ here:
 				free(buff);
 				exit(0); 
 			}
-			if(strcmp(av[0],"exit") == 0)
-			{	
-				free(buff);
-				exit(1);
-				
-			}
+			
+			_exit_man(av, buff);
 			if(strcmp(av[0],"env") == 0)
 			{
 				_printenv();
