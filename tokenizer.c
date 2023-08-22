@@ -7,9 +7,13 @@ char **tokenizer(char *buff, char *delimiter, int n_line)
 	int token_count = 0, j = 0;
 
 	buff_cp = malloc(sizeof(char) * (n_line + 1)); 
-
+	if (buff_cp == NULL)
+	{	
+		free(buff_cp);
+		perror("Error");
+	}
 	strcpy(buff_cp, buff);
-
+	
 	token = strtok(buff, delimiter);
 	while(token)
 	{	
@@ -17,9 +21,12 @@ char **tokenizer(char *buff, char *delimiter, int n_line)
 		token = strtok(NULL, delimiter);				
 	}
 	token_count++;
-
 	token_arr = malloc(sizeof(char *) * token_count);
-
+	if (token_arr == NULL)
+	{
+		free_tokens(token_arr);
+		perror("Error");
+	}
 	token = strtok(buff_cp, delimiter);
 	while (token)
 	{	
@@ -29,6 +36,8 @@ char **tokenizer(char *buff, char *delimiter, int n_line)
 		j++;
 	}
 	token_arr[j] = NULL;
-
+	free(buff_cp);
+	free(token);
+	free(delimiter);
 	return (token_arr);
 }
