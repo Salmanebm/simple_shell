@@ -5,9 +5,9 @@
  * @c: The character to print
  * Return: Always 1
  */
-int _putchar(char c)
+int _putchar(const char *c)
 {
-	return (write(1, &c, 1));
+	return (write(STDOUT_FILENO, c, _strlen(c)));
 }
 
 /**
