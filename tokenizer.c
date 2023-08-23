@@ -25,7 +25,7 @@ char **tokenizer(char *buff, char *delimiter, int n_line)
 	if (token_arr == NULL)
 	{
 		free_tokens(token_arr);
-		perror("Error");
+		return (NULL);
 	}
 	token = strtok(buff_cp, delimiter);
 	while (token)

@@ -21,7 +21,7 @@ int main(int ac, char **av)
 	{
 		while (1)
 		{
-			write(1, "($) ", 4);
+			write(1, "$ ", 2);
 			n_line = getline(&buff, &buff_size, stdin);
 			if (buff[0] == '\n')
 				continue;	
@@ -52,7 +52,7 @@ int main(int ac, char **av)
 				cmd = _getpath(av);
 				if (cmd == NULL)
 				{	
-					printf("command not exist\n");
+					print_error(buff, av);
 				}
 				else
 				{	

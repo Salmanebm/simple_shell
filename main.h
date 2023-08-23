@@ -1,6 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+
+
+#define PRINTER(c) (write(STDOUT_FILENO, c, _strlen(c)))
 /****** Libraries ******/
 
 #include <stdio.h>
@@ -29,5 +32,6 @@ void _exit_man(char **token_arr, char *buff);
 void *fill_an_array(void *a, int el, unsigned int len);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_getline();
+void print_error(char *input, char **argv);
 
 #endif

@@ -18,7 +18,7 @@ char *_getpath(char **token_arr)
 		{	
 			free(full_cmd);
 			free_tokens(path_arr);
-			perror("Error");
+			return (NULL);
 		}
 		strcpy(full_cmd, path_arr[i]);
 		strcat(full_cmd, "/");

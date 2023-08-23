@@ -11,3 +11,12 @@ void _exit_man(char **token_arr, char *buff)
 		exit(1);
 	}
 }
+void print_error(char *input, char **argv)
+{
+
+	PRINTER(argv[0]);
+	PRINTER(": ");
+	PRINTER("qwerty: ");
+	PRINTER(input);
+	PRINTER(": not found\n");
+}
